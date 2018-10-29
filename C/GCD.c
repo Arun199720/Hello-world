@@ -1,16 +1,20 @@
 #include <stdio.h>
+ 
+int gcd(int, int);
+ 
 int main()
 {
-    int n1, n2, i, gcd;
-    printf("Enter two integers: ");
-    scanf("%d %d", &n1, &n2);
-    for(i=1; i <= n1 && i <= n2; ++i)
-    {
-        if(n1%i==0&&n2%i==0)
-        {
-            gcd = i;
-        }
-    }
-    printf("G.C.D = %d",gcd);
-    return 0;
+    int a, b, result;
+ 
+    printf("Enter the two numbers to find their GCD: ");
+    scanf("%d%d", &a, &b);
+    
+    result = gcd(a, b);
+    printf("The GCD of %d and %d is %d.\n", a, b, result);
+}
+int gcd(int a, int b)
+{
+    if(b==0)
+     return a;
+     else return gcd(b,a%b);
 }
